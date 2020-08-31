@@ -1,11 +1,12 @@
 const db = require('../../models');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 module.exports = {
 post :(request, response) => {
   let hashedPassword = request.body.password;
-  var shasum = crypto.createHmac('sha512', 'thisismysecretkey');
+  var shasum = crypto.createHmac('sha512', process.env.SALT);
   shasum.update(hashedPassword);
   hashedPassword = shasum.digest('hex');
 

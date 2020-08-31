@@ -1,10 +1,11 @@
 const db = require('../../models');
 const crypto = require('crypto');
+require('dotenv').config();
 
 module.exports = {
   post:(request, response) => {
     let password = request.body.password
-    var shasum = crypto.createHmac('sha512', 'thisismysecretkey');
+    var shasum = crypto.createHmac('sha512', process.env.SALT);
     shasum.update(password);
     password = shasum.digest('hex');
     
