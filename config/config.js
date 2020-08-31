@@ -4,7 +4,7 @@ const env = process.env;
 const development = {
     username: "root",
     password: env.PASSWORD,
-    database: "database_development",
+    database: "greenEach",
     host: "127.0.0.1",
     dialect: "mysql"
   };
