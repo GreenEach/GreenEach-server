@@ -1,3 +1,4 @@
 module.exports = {
-  signController: require('./sign')
+  signController: require('./sign'),
+  contentController:require('./content')
 }
