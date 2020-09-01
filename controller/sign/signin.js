@@ -21,12 +21,12 @@ module.exports = {
             },
             process.env.TOKEN_KEY
           );
-
+          //redis에 사용자의 email을 키로, 토큰을 value로 저장한다.
           redisClient.set(request.body.email, token);
 
           response.status(200);
           response.cookie('userInfo', token, {
-            maxAge:1000*60*60*24,
+            maxAge: 1000 * 60 * 60 * 24,
             httpOnly:true
           });
           response.json({ message: 'Login Success' });
