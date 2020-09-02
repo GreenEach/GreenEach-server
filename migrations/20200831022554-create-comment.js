@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       comment: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       photo_url: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
