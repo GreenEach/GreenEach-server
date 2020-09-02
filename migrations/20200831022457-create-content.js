@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      photo_url: {
+      photoUrl: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -40,7 +40,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         references:{model: "Users", key:"id"},
         onDelete: "CASCADE",

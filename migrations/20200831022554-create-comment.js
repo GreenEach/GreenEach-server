@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      photo_url: {
+      photoUrl: {
         type: Sequelize.STRING,
         allowNull: true
       },
@@ -24,13 +24,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         references:{model: "Users", key:"id"},
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
       },
-      content_id: {
+      contentId: {
         type: Sequelize.INTEGER,
         references:{model: "Contents", key:"id"},
         onDelete: "CASCADE",

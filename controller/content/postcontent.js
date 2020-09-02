@@ -5,7 +5,7 @@ module.exports = {
 
     let requestBody = request.body;
     let reqeustBodyKeys = Object.keys(requestBody);
-    let neccessaryKeys = ["title", "content", "level", "season", "category", "photo_url"]
+    let neccessaryKeys = ["title", "content", "level", "season", "category", "photoUrl"]
     
     neccessaryKeys.forEach(element => {
       if(reqeustBodyKeys.includes(element) === false){
@@ -25,7 +25,8 @@ module.exports = {
       level:request.body.level,
       season:request.body.season,
       category:request.body.category,
-      photo_url:request.body.photo_url
+      photoUrl:request.body.photoUrl,
+      userId:request.decoded.id
     }).then(post => {
       if(post){
         response.status(200).json({id:post.id})

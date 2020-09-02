@@ -18,6 +18,7 @@ module.exports = {
           let token = jwt.sign(
             {
               email: request.body.email,
+              id: user.id
             },
             process.env.TOKEN_KEY
           );

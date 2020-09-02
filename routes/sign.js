@@ -7,5 +7,6 @@ router.post('/signup', signController.signup.post);
 router.post('/signin', signController.signin.post);
 router.use('/', authMiddleware);
 router.post('/signout', signController.signout.post);
+router.post('/mypage', signController.mypage.post);
 
 module.exports = router;
