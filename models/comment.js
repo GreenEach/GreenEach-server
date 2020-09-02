@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Comment.belongsTo(models.User, {
-        foreignKey:"user_id"
+        foreignKey:"user_id",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
       })
       Comment.belongsTo(models.Content, {
         foreignKey:"content_id"

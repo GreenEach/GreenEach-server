@@ -12,19 +12,41 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Content.belongsTo(models.User, {
-        foreignKey:"user_id"
+        foreignKey:"user_id",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
       })
       Content.hasMany(models.Comment)
     }
   }
   Content.init({
-    title: DataTypes.STRING,
-    content: DataTypes.STRING,
-    level: DataTypes.STRING,
-    season: DataTypes.STRING,
-    category: DataTypes.STRING,
-    photo_url: DataTypes.STRING,
-    user_id:DataTypes.INTEGER
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    level: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    season: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    photo_url: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    user_id:{
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'Content',
