@@ -11,4 +11,6 @@ router.post('/detail', contentController.getContentDetail.post)
 router.patch('/', contentController.patchContent.patch)
 
 
+router.delete('/', contentController.deleteContent.delete)
+
 module.exports = router;
