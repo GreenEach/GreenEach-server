@@ -1,3 +1,3 @@
 module.exports = {
-  postComment: require('./postcomment')
+  postComment: require('./postComment')
 }
