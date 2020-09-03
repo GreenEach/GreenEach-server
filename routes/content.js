@@ -9,8 +9,7 @@ router.use('/', authMiddleware)
 router.post('/', contentController.postContent.post)
 router.post('/detail', contentController.getContentDetail.post)
 router.patch('/', contentController.patchContent.patch)
-
-
+router.post('/specific', contentController.getSpecificContents.post)
 router.delete('/', contentController.deleteContent.delete)
 
 module.exports = router;
