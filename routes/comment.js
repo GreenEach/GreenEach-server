@@ -8,4 +8,6 @@ router.use('/', authMiddleware)
 // 따라서 아래 라우트들은 로그인 상태인지 확인하는 로직을 넣을 필요가 없다.
 router.post('/', commentController.postComment.post)
 router.delete('/', commentController.deleteComment.delete)
+router.patch('/', commentController.patchComment.patch)
+
 module.exports = router;
