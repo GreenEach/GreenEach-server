@@ -8,5 +8,5 @@ router.post('/signin', signController.signin.post);
 router.use('/', authMiddleware);
 router.post('/signout', signController.signout.post);
 router.post('/mypage', signController.mypage.post);
-
+router.patch('/mypage', signController.mypage.patch);
 module.exports = router;

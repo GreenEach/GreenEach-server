@@ -2,7 +2,6 @@ const db = require('../../models');
 
 module.exports = {
   post: (request, response) => {
-    // 6~20번줄은 테스트 단계에서만 사용하고 이후 프론트에서 처리하면 될 듯 합니다.
     let requestBody = request.body;
     let reqeustBodyKeys = Object.keys(requestBody);
     let neccessaryKeys = ["photoUrl", "comment", "contentId"]
@@ -18,6 +17,7 @@ module.exports = {
         return response.status(400).json({message:"bad request"})
       }
     }
+    
     db.Comment.create({
       photoUrl:request.body.photoUrl,
       comment:request.body.comment,
