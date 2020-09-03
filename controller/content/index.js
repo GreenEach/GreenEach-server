@@ -1,3 +1,4 @@
 module.exports = {
-  postContent: require('./postcontent'),
+  postContent: require('./postContent'),
+  getContentDetail: require('./getContentDetail')
 }
