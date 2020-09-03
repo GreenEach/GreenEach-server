@@ -1,3 +1,4 @@
 module.exports = {
-  postComment: require('./postComment')
+  postComment: require('./postComment'),
+  patchComment: require('./patchComment')
 }
