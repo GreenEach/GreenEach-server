@@ -9,4 +9,6 @@ router.use('/', authMiddleware)
 router.post('/', contentController.postContent.post)
 router.post('/detail', contentController.getContentDetail.post)
 
+router.delete('/', contentController.deleteContent.delete)
+
 module.exports = router;
