@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Content.belongsTo(models.User, {
-        foreignKey:"user_id",
+        foreignKey:"userId",
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
       })
@@ -40,11 +40,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    photo_url: {
+    photoUrl: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    user_id:{
+    userId:{
       type: DataTypes.INTEGER
     }
   }, {

@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      profile_photo_url: {
+      profilePhotoUrl: {
         type: Sequelize.STRING
       },
       createdAt: {

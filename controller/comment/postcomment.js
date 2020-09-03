@@ -5,7 +5,7 @@ module.exports = {
     // 6~21번줄은 테스트 단계에서만 사용하고 이후 프론트에서 처리하면 될 듯 합니다.
     let requestBody = request.body;
     let reqeustBodyKeys = Object.keys(requestBody);
-    let neccessaryKeys = ["photo_url", "comment"]
+    let neccessaryKeys = ["photoUrl", "comment"]
     
     neccessaryKeys.forEach(element => {
       if(reqeustBodyKeys.includes(element) === false){
@@ -19,8 +19,10 @@ module.exports = {
       }
     }
     db.Comment.create({
-      photo_url:request.body.photo_url,
-      comment:request.body.comment
+      photoUrl:request.body.photoUrl,
+      comment:request.body.comment,
+      contentId:request.body.contentId,
+      userId:request.decoded.id
     }).then(comment=>{
       if(comment){
         response.status(200).json({id:comment.id})
