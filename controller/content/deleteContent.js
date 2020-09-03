@@ -11,7 +11,7 @@ module.exports = {
     where: {id:request.body.contentId}
   })
   .then(result => {
-    response.status(200).json({result:result})
+    response.status(200).json({message:"content deleted"})
   })
   .catch(error =>
     response.status(400).json({messgae:"something wrong!", error: error}))
