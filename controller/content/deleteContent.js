@@ -4,7 +4,7 @@ module.exports = {
   delete: (request, response) => {
 
   if(!request.body.contentId && typeof request.body.contentId !== "number"){
-    response.status(400).json({messgae:"bad request"})
+    return response.status(400).json({messgae:"bad request"})
   }
 
   db.Content.destroy({

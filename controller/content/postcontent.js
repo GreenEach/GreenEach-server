@@ -19,6 +19,12 @@ module.exports = {
       }
     }
 
+    if(!["easy", "normal", "hard"].includes(request.body.level)){
+      return response.status(400).json({message:"bad request"})
+    }else if(!["spring", "summer", "fall", "winter", "any"].includes(request.body.season)){
+      return response.status(400).json({message:"bad request"})
+    }
+
     db.Content.create({
       title:request.body.title,
       content:request.body.content,

@@ -4,6 +4,23 @@ require('dotenv').config();
 
 module.exports = {
   post:(request, response) => {
+
+    let requestBody = request.body;
+    let reqeustBodyKeys = Object.keys(requestBody);
+    let neccessaryKeys = ["username", "email", "password"]
+    
+    neccessaryKeys.forEach(element => {
+      if(reqeustBodyKeys.includes(element) === false){
+        return response.status(400).json({message:"bad request"})
+      }
+    })
+    
+    for(let key in requestBody){
+      if(requestBody[key] === ''){
+        return response.status(400).json({message:"bad request"})
+      }
+    }
+
     let password = request.body.password
     var shasum = crypto.createHmac('sha512', process.env.SALT);
     shasum.update(password);

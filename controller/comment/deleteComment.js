@@ -4,7 +4,7 @@ module.exports = {
   delete: (request, response) => {
 
     if(!request.body.commentId && typeof request.body.commentId !== "number"){
-      response.status(400).json({messgae:"bad request"})
+      return response.status(400).json({messgae:"bad request"})
     }
 
     db.Comment.destroy({
