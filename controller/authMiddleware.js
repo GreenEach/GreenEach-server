@@ -8,7 +8,7 @@ const redisClient = redis.createClient();
 const authMiddleware = (request, response, next) => {
   // const token = request.cookies.userInfo;
   const token = request.get('token');
-  console.log(token);
+  // console.log(token);
 
   if (!token) {
     return response.status(401).json({
