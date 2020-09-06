@@ -18,7 +18,7 @@ module.exports = {
           let token = jwt.sign(
             {
               email: request.body.email,
-              id: user.id
+              id: user.id,
             },
             process.env.TOKEN_KEY
           );
@@ -26,10 +26,11 @@ module.exports = {
           redisClient.set(request.body.email, token);
 
           response.status(200);
-          response.cookie('userInfo', token, {
-            maxAge: 1000 * 60 * 60 * 24,
-            httpOnly:true
-          });
+          // response.cookie('userInfo', token, {
+          //   maxAge: 1000 * 60 * 60 * 24,
+          //   httpOnly:true
+          // });
+          response.setHeader('token', token);
           response.json({ message: 'Login Success' });
         } else {
           response
