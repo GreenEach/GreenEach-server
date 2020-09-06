@@ -6,7 +6,9 @@ const redisClient = redis.createClient();
 // 3.1 토큰 검증에 성공하면 redis에 저장되있는 값과 같은지 확인한다
 // 3.2 redis에 저장되어 있는 값과 다르다면(로그아웃 했었다면) 인증 에러를 내보낸다.
 const authMiddleware = (request, response, next) => {
-  const token = request.cookies.userInfo;
+  // const token = request.cookies.userInfo;
+  const token = request.get('token');
+  console.log(token);
 
   if (!token) {
     return response.status(401).json({
@@ -25,9 +27,7 @@ const authMiddleware = (request, response, next) => {
   });
 
   const onError = (error) => {
-    response
-      .status(401)
-      .json({ message: 'Unauthorized error, please login' });
+    response.status(401).json({ message: 'Unauthorized error, please login' });
   };
 
   decodeTokenPromise
@@ -37,14 +37,17 @@ const authMiddleware = (request, response, next) => {
       // redis에는 사용자의 email이 key로, 로그인할 때 발급받은 토큰이 value로 저장되어 있다.
       // redis에 있는 데이터 중 decoded.email 키의 value값을 쿠키에 담겨서 넘어온 토큰과 비교한다
       redisClient.get(decoded.email, (error, reply) => {
-        if(reply === token){
+        if (reply === token) {
           request.decoded = decoded; // 로그인 상태라면 다른 컨트롤러에서도 request.decoded를 통해 사용자의 email을 추출해서 사용할 수 있음.
           next();
         } else {
-        response.status(401).json({message: 'Unauthorized error, please login' })
+          response
+            .status(401)
+            .json({ message: 'Unauthorized error, please login' });
         }
+      });
     })
-  }).catch(onError);
+    .catch(onError);
 };
 
-module.exports = authMiddleware
+module.exports = authMiddleware;
