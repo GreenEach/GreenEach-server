@@ -13,5 +13,6 @@ router.patch('/', contentController.patchContent.patch);
 router.post('/specific', contentController.getSpecificContents.post);
 router.get('/random', contentController.getRandomContent.get);
 router.delete('/', contentController.deleteContent.delete);
+router.post('/search', contentController.searchContent.post);
 
 module.exports = router;
