@@ -4,5 +4,6 @@ module.exports = {
   deleteContent: require('./deleteContent'),
   patchContent: require('./patchContent'),
   getSpecificContents: require('./getSpecificContents'),
-  getRandomContent: require('./getRandomContent')
-}
+  getRandomContent: require('./getRandomContent'),
+  searchContent: require('./searchPost'),
+};
