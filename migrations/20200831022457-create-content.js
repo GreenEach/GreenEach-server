@@ -24,10 +24,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      category: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       photoUrl: {
         type: Sequelize.STRING,
         allowNull: false

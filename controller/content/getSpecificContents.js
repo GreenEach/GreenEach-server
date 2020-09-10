@@ -5,7 +5,7 @@ module.exports = {
 
     let requestBody = request.body;
     let reqeustBodyKeys = Object.keys(requestBody);
-    let neccessaryKeys = ["level", "season", "category"]
+    let neccessaryKeys = ["level", "season"]
     
     neccessaryKeys.forEach(element => {
       if(reqeustBodyKeys.includes(element) === false){
@@ -17,8 +17,7 @@ module.exports = {
     db.Content.findAll({
       where:{
         level:request.body.level,
-        season:request.body.season,
-        category:request.body.category
+        season:request.body.season
       }
     })
     .then(specificContents => {

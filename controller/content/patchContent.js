@@ -5,7 +5,7 @@ module.exports = {
 
     let requestBody = request.body;
     let reqeustBodyKeys = Object.keys(requestBody);
-    let possibleKeys = ['contentId', 'title', 'content', 'level', 'season', 'category', 'photoUrl'];
+    let possibleKeys = ['contentId', 'title', 'content', 'level', 'season', 'photoUrl'];
 
     reqeustBodyKeys.forEach((element) => {
       if (possibleKeys.includes(element) === false) {
@@ -18,7 +18,6 @@ module.exports = {
       content:request.body.content,
       level:request.body.level,
       season:request.body.season,
-      category:request.body.category,
       photoUrl:request.body.photoUrl
     },
     {where: {id: request.body.contentId}})
