@@ -21,7 +21,7 @@ module.exports = {
 
     db.Content.findAll({
       where:{id: request.body.contentId},
-      attributes:["id", "title", "content", "level", "season", "category", "photoUrl", "createdAt", "updatedAt"],
+      attributes:["id", "title", "content", "level", "season", "photoUrl", "createdAt", "updatedAt"],
       include:[
         {model: db.User, attributes: ["username"]},
         {model: db.Comment,
