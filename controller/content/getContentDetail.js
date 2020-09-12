@@ -23,10 +23,10 @@ module.exports = {
       where:{id: request.body.contentId},
       attributes:["id", "title", "content", "level", "season", "photoUrl", "createdAt", "updatedAt"],
       include:[
-        {model: db.User, attributes: ["username"]},
+        {model: db.User, attributes: ["username", "email"]},
         {model: db.Comment,
          attributes: ["id", "comment", "photoUrl", "createdAt"],
-         include: [{model: db.User, attributes: ["username"]}] 
+         include: [{model: db.User, attributes: ["username", "email"]}] 
         },
       ]
     }).then(contentDetail => {
