@@ -12,10 +12,10 @@ module.exports = {
         request.files.forEach((file) => urlArr.push(file.location));
         urlString = JSON.stringify(urlArr);
       } else {
-        return response.status(400).json({ message: 'bad request' });
+        return response.status(400).json({ message: 'img key cant be empty' });
       }
     } else {
-      return response.status(400).json({ message: 'bad request' });
+      return response.status(400).json({ message: 'no img file' });
     }
     
     // 아래는 클라이언트가 요청이 적절한지 확인하는 로직
@@ -25,24 +25,24 @@ module.exports = {
 
     neccessaryKeys.forEach((element) => {
       if (reqeustBodyKeys.includes(element) === false) {
-        return response.status(400).json({ message: 'bad request' });
+        return response.status(400).json({ message: 'need key : title, content, level, season' });
       }
     });
 
     for (let key in requestBody) {
       if (requestBody[key] === '') {
-        return response.status(400).json({ message: 'bad request' });
+        return response.status(400).json({ message: 'empty value error' });
       }
     }
 
     if (!['easy', 'normal', 'hard'].includes(request.body.level)) {
-      return response.status(400).json({ message: 'bad request' });
+      return response.status(400).json({ message: 'type correct level' });
     } else if (
       !['spring', 'summer', 'fall', 'winter', 'any'].includes(
         request.body.season
       )
     ) {
-      return response.status(400).json({ message: 'bad request' });
+      return response.status(400).json({ message: 'type correct season' });
     }
 
     db.Content.create({
@@ -56,7 +56,7 @@ module.exports = {
       if (post) {
         response.status(200).json({ id: post.id, urls: urlString });
       } else {
-        response.status(400).json({ message: 'bad request' });
+        response.status(400).json({ message: 'something wrong!' });
       }
     });
   },
