@@ -30,7 +30,7 @@ module.exports = {
           //   maxAge: 1000 * 60 * 60 * 24,
           //   httpOnly:true
           // });
-          response.json({ token: token });
+          response.json({ token: token, email: request.body.email });
           // response.json({ message: 'Login Success' });
         } else {
           response
