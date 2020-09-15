@@ -3,6 +3,20 @@ const db = require('../../models');
 module.exports = {
   patch: (request, response) => {
 
+    let urlString;
+
+    if(request.files){
+      if (request.files.length > 0) {
+        let urlArr = [];
+        request.files.forEach((file) => urlArr.push(file.location));
+        urlString = JSON.stringify(urlArr);
+      } else {
+        return response.status(400).json({ message: 'img key cant be empty' });
+      }
+    } else {
+      return response.status(400).json({ message: 'no img file' });
+    }
+
     let requestBody = request.body;
     let reqeustBodyKeys = Object.keys(requestBody);
     let possibleKeys = ['contentId', 'title', 'content', 'level', 'season', 'photoUrl'];
@@ -18,7 +32,7 @@ module.exports = {
       content:request.body.content,
       level:request.body.level,
       season:request.body.season,
-      photoUrl:request.body.photoUrl
+      photoUrl:urlString
     },
     {where: {id: request.body.contentId}})
     .then(updatedContent => {

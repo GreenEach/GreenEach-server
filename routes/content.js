@@ -9,7 +9,7 @@ router.use('/', authMiddleware);
 // 따라서 아래 라우트들은 로그인 상태인지 확인하는 로직을 넣을 필요가 없다.
 router.post('/', upload.array('img'), contentController.postContent.post);
 router.post('/detail', contentController.getContentDetail.post);
-router.patch('/', contentController.patchContent.patch);
+router.patch('/', upload.array('img'), contentController.patchContent.patch);
 router.post('/specific', contentController.getSpecificContents.post);
 router.get('/random', contentController.getRandomContent.get);
 router.delete('/', contentController.deleteContent.delete);
