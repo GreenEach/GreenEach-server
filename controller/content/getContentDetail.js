@@ -30,7 +30,7 @@ module.exports = {
         },
       ]
     }).then(contentDetail => {
-      response.status(200).json({data:contentDetail, currentUser:request.decoded.email});
+      response.status(200).json({contentInfo:contentDetail, currentUser:request.decoded.email});
     })
   }
 }
