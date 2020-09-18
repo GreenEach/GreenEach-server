@@ -14,5 +14,6 @@ router.patch('/', upload.array('img'), contentController.patchContent.patch);
 router.post('/specific', contentController.getSpecificContents.post);
 router.delete('/', contentController.deleteContent.delete);
 router.post('/search', contentController.searchContent.post);
+router.get('/allContent', contentController.getAllContent.get);
 
 module.exports = router;

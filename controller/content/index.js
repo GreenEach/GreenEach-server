@@ -6,4 +6,5 @@ module.exports = {
   getSpecificContents: require('./getSpecificContents'),
   getRandomContent: require('./getRandomContent'),
   searchContent: require('./searchPost'),
+  getAllContent: require('./getAllContent')
 };
