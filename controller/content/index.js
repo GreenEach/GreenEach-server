@@ -1,5 +1,5 @@
 module.exports = {
-  postContent: require('./postContent'),
+  postContent: require('./postcontent'),
   getContentDetail: require('./getContentDetail'),
   deleteContent: require('./deleteContent'),
   patchContent: require('./patchContent'),

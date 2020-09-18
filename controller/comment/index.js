@@ -1,5 +1,5 @@
 module.exports = {
-  postComment: require('./postComment'),
+  postComment: require('./postcomment'),
   deleteComment: require('./deleteComment'),
   patchComment: require('./patchComment')
 }
